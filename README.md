@@ -71,7 +71,7 @@ Anything.cached_for(10.hours, opts) {}
 	* expires_in: time to expire
 	* key: cached key for save and use for ***delete_cached***
 
-### Best Practice
+#### 4. cache support
 ``` ruby
 Munna.cache.values # => list all key in memcached
 Munna.cache.claer # => clear all value, key in memcached
