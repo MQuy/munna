@@ -10,11 +10,15 @@ module Munna
 		end
 
 		def get_key(fragments)
-			key = ''
-			fragments.each do |fragment|
-				key += '/' + (fragment.is_a?(Array) ? fragment.join('-') : fragment.to_s)
+			if [Symbol, String].include? fragments.class
+				fragments.to_s
+			else
+				key = ''
+				fragments.each do |fragment|
+					key += '/' + (fragment.is_a?(Array) ? fragment.join('-') : fragment.to_s)
+				end
+				key[1..-1]
 			end
-			key[1..-1]
 		end
 	end
 
@@ -29,8 +33,7 @@ module Munna
 
 	module Proxy
 		require 'munna/proxy/base'
-		require 'munna/proxy/write'
-		require 'munna/proxy/delete'
+		require 'munna/proxy/execute'
 	end
 
 	module Performs

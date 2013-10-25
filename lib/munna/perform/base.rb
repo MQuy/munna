@@ -1,16 +1,16 @@
 module Munna
 	module Perform
 		class Base
-			def initialize(target, opts, method)
+			def initialize(target, opts, execute)
 				@target = target
 				@opts = opts
-				@method = method
+				@execute = execute
 			end
 
 			def perform_write
 				Munna.cache.write cached_key
 				Rails.cache.fetch(cached_key, @opts) do
-					normalize(@target.send(@method[:name], *@method[:params]))
+					normalize(@execute.value)
 				end
 			end
 
@@ -23,7 +23,7 @@ module Munna
 			end
 
 			def method_name
-				@opts[:key] || @method[:name]
+				@opts[:key] || @execute.name || @opts[:caller_name]
 			end
 
 			def normalize(value)

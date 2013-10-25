@@ -3,12 +3,8 @@ module Munna
 		module ActiveRecord
 			include Basic
 
-			def cached(*opts)
-				Proxy::Write.new(Perform::ActiveRecord, self, Helper.normalize_params(opts))
-			end
-
-			def delete_cached(*opts)
-				Proxy::Delete.new(Perform::ActiveRecord, self, Helper.normalize_params(opts))
+			def munna_perform
+				Perform::ActiveRecord
 			end
 		end
 	end

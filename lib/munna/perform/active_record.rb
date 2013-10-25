@@ -6,7 +6,7 @@ module Munna
 			end
 
 			def method_name
-				[super, (send(@method[:name]) rescue nil)].compact
+				[super, (send(@execute.name) rescue nil)].compact
 			end
 
 			def normalize(values)
