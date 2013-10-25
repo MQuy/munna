@@ -9,15 +9,11 @@ module Munna
 			Cache.instance
 		end
 
-		def get_key(fragments)
-			if [Symbol, String].include? fragments.class
-				fragments.to_s
+		def get_key(params)
+			if [Symbol, String].include? params.class
+				params
 			else
-				key = ''
-				fragments.each do |fragment|
-					key += '/' + (fragment.is_a?(Array) ? fragment.join('-') : fragment.to_s)
-				end
-				key[1..-1]
+				(params.map {|v| v.is_a?(Array) ? v.join('-') : v}).join('/')
 			end
 		end
 	end

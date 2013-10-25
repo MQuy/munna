@@ -9,8 +9,8 @@ module Munna
 
 			def perform_write
 				Munna.cache.write cached_key
-				Rails.cache.fetch(cached_key, @opts) do
-					normalize(@execute.value)
+				Rails.cache.fetch cached_key, @opts do
+					normalize @execute.value
 				end
 			end
 

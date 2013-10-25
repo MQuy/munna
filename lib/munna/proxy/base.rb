@@ -1,11 +1,6 @@
 module Munna
 	module Proxy
 		class Base
-			def self.builder(kclass, target, options={}, &block)
-				instance = new kclass, target, options, &block
-				block.present? ? instance.__perform__(Execute.new target, block) : instance
-			end
-
 			def initialize(kclass, target, options={}, &block)
 				@kclass = kclass
 				@target = target
@@ -21,7 +16,12 @@ module Munna
 			end
 		end
 
-		class Write < Base; end
+		class Write < Base
+			def self.builder(kclass, target, options={}, &block)
+				instance = new kclass, target, options, &block
+				block.present? ? instance.__perform__(Execute.new target, block) : instance
+			end
+		end
 
 		class Delete < Base
 			def self.builder(kclass, target, options={}, &block)
