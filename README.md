@@ -75,6 +75,6 @@ Anything.cached_for(10.hours, opts) {}
 ``` ruby
 Munna.cache.values # => list all key in memcached
 Munna.cache.claer # => clear all value, key in memcached
-Munna.cache.get_matched /xxx/ # => get values with satify regex
-Munna.cache.delete_matched /xxx/ # => delete values with satify regex
+Munna.cache.get_matched /xxx/ # => get values with sastified regex
+Munna.cache.delete_matched /xxx/ # => delete values with sastified regex
 ```
