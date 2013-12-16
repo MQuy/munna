@@ -4,7 +4,7 @@ module Munna
 	class Cache
 		include Singleton
 
-		def initalize
+		def initialize
 			values
 		end
 
