@@ -6,7 +6,7 @@ module Munna
 			end
 
 			def cached_for(expires_in, opts={}, &block)
-				cached(opts.merge(:expires_in => expires_in), &block)
+				Proxy::Write.builder(munna_perform, self, Helper.normalize_params(opts.merge(:expires_in => expires_in)), &block)
 			end
 
 			def delete_cached(*opts)
