@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	has_many :profiles
 
 	def self.list_with_profiles
-		cache {
+		cached {
 			join(:profiles)
 			.group('users.id')
 			.select('users.*, count(users.id)')
