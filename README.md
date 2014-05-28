@@ -25,9 +25,11 @@ class User < ActiveRecord::Base
 	has_many :profiles
 
 	def self.list_with_profiles
-		cache.join(:profiles)
+		cache {
+			join(:profiles)
 			.group('users.id')
 			.select('users.*, count(users.id)')
+		}
 	end
 
 	# get random 5 rows, cache for 10.hours
