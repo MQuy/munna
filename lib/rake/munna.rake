@@ -5,6 +5,6 @@ namespace :munna do
   end
 
   task :values => :environment do
-  	puts Munna.cache.values
+    puts Munna.cache.values
   end
 end

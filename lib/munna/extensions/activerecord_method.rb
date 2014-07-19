@@ -1,13 +1,13 @@
 module Munna
-	module Extensions
-		module ActiveRecord
-			include Basic
+  module Extensions
+    module ActiveRecord
+      include Basic
 
-			def munna_perform
-				Perform::ActiveRecord
-			end
-		end
-	end
+      def munna_perform
+        Perform::ActiveRecord
+      end
+    end
+  end
 end
 
 ActiveRecord::Base.send(:include, Munna::Extensions::ActiveRecord)
