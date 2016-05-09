@@ -6,7 +6,9 @@ Simple cache wrapper for rails ActiveRecord, Object, ... to speed up your site
 
 Add this line to your application's Gemfile:
 
-  gem 'munna'
+```ruby
+gem 'munna'
+```
 
 ### Usage
 
